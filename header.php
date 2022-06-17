@@ -25,35 +25,30 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'bss_verifi3d' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$bss_verifi3d_description = get_bloginfo( 'description', 'display' );
-			if ( $bss_verifi3d_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $bss_verifi3d_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'bss_verifi3d' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+	<header id="masthead" class="bss-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-3 col-sm-6">
+					<div class="bss-header__logo">
+						<?php
+							the_custom_logo();								
+						?>
+					</div>
+				</div>
+				<div class="col-xl-9 col-sm-6">
+					<button class="btn btn-outline-white mobile-menu__btn" id="mobileMenutoggler">
+						<span><i class="fa fa-bars"></i></span>
+					</button>
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',
+								'menu_class'	 => 'bss-header__nav-inner'
+							)
+						);
+						?>
+				</div>
+			</div>
+		</div>
+	</header>
