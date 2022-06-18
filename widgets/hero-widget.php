@@ -114,7 +114,10 @@ class Banner_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Button 1 URL', 'verifi3d-elementor' ),
 				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => __( '#', 'verifi3d-elementor' )				
+				'placeholder' => __( '#', 'verifi3d-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				],				
 			]
 		);
 
@@ -135,7 +138,10 @@ class Banner_Widget extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Button 2 URL', 'verifi3d-elementor' ),
 				'type' => \Elementor\Controls_Manager::URL,
 				'separator' => 'after',
-				'placeholder' => __( '#', 'verifi3d-elementor' )			
+				'placeholder' => __( '#', 'verifi3d-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				],		
 			]
 		);
 
@@ -257,9 +263,9 @@ class Banner_Widget extends \Elementor\Widget_Base {
 		$heading = $settings['heading'];
 		$description = $settings['description'];
 		$btn_1_title = $settings['btn-1-title'];
-		$btn_1_url = $settings['btn-1-url'];
+		$btn_1_url = $settings['btn-1-url']['url'];
 		$btn_2_title = $settings['btn-2-title'];
-		$btn_2_url = $settings['btn-2-url'];
+		$btn_2_url = $settings['btn-2-url']['url'];
 		$image_large = $settings['image-large'];
 		$image_small = $settings['image-small'];
 		?>
@@ -284,7 +290,7 @@ class Banner_Widget extends \Elementor\Widget_Base {
                             <a class="popup-video" href="<?= $btn_2_url ?>">
 								<button class="common-btn">
 								<?= $btn_2_title ?>
-									<span><i class="fa fa-play" aria-hidden="true"></i></span>
+									<span><i class="fa fa-search" aria-hidden="true"></i></span>
                                 </button>
 							</a>
 

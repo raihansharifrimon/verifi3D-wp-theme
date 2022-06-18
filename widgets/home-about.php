@@ -10,17 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Section_Heading_Widget extends \Elementor\Widget_Base {
+class Home_About_Section_Widget extends \Elementor\Widget_Base {
 	public function get_name() {
-		return 'Section Heading';
+		return 'About Info';
 	}
 
 	public function get_title() {
-		return esc_html__( 'Section Heading', 'verifi3d-elementor' );
+		return esc_html__( 'About Info', 'verifi3d-elementor' );
 	}
 
 	public function get_icon() {
-		return 'eicon-heading';
+		return 'eicon-call-to-action';
 	}
 
 	public function get_custom_help_url() {
@@ -32,7 +32,7 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'heading', 'section-heading', 'hero-section' ];
+		return [ 'about', 'aboutinfo', 'home' ];
 	}
 
 	protected function register_controls() {
@@ -48,11 +48,11 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 
 		// title 
 		$this->add_control(
-			'heading',
+			'title',
 			[
 				'label' => esc_html__( 'Title', 'verifi3d-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'placeholder' => __( 'Heading', 'verifi3d-elementor' )				
+				'placeholder' => __( 'Title', 'verifi3d-elementor' )				
 			]
 		);
 
@@ -64,6 +64,41 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'separator' => 'after',
 				'placeholder' => __( 'Description', 'verifi3d-elementor' )				
+			]
+		);
+        
+        $this->add_control(
+			'video_link',
+			[
+				'label' => esc_html__( 'Video URL', 'verifi3d-elementor' ),
+				'type' => \Elementor\Controls_Manager::URL,
+				'placeholder' => __( '#', 'verifi3d-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				],				
+			]
+		);
+
+        // button text
+		$this->add_control(
+			'btn_text',
+			[
+				'label' => esc_html__( 'Button Text', 'verifi3d-elementor' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'placeholder' => __( 'Text', 'verifi3d-elementor' )				
+			]
+		);
+
+        // button url
+		$this->add_control(
+			'btn_url',
+			[
+				'label' => esc_html__( 'Button URL', 'verifi3d-elementor' ),
+				'type' => \Elementor\Controls_Manager::URL,
+				'placeholder' => __( '#', 'verifi3d-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				],				
 			]
 		);		
 
@@ -95,7 +130,7 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#2aa9e1',
 				'selectors' => [
-					'{{WRAPPER}} , .section-heading h1' => 'color: {{VALUE}};',
+					'{{WRAPPER}} , .left-info h5' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -105,7 +140,7 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'heading_typography',
-				'selector' => '{{WRAPPER}} .section-heading h1',
+				'selector' => '{{WRAPPER}} .left-info h5',
 			]
 		);
 
@@ -114,7 +149,7 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'heading_shadow',                
-				'selector' => '{{WRAPPER}} .section-heading h1',
+				'selector' => '{{WRAPPER}} .left-info h5',
 			]
 		);
 
@@ -136,7 +171,7 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#e16627',
 				'selectors' => [
-					'{{WRAPPER}} , .section-heading p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} , .info p' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -146,7 +181,7 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'description_typography',
-				'selector' => '{{WRAPPER}} .section-heading p',
+				'selector' => '{{WRAPPER}} .info p',
 			]
 		);
 
@@ -155,30 +190,7 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'description_shadow',
-				'selector' => '{{WRAPPER}} .section-heading p',
-			]
-		);
-
-        // ----------------Divider Style-----------
-        $this->add_control(
-			'divider_color',            
-			[
-                'separator' => 'before',
-				'label' => esc_html__( 'Divider Style', 'verifi3d-elementor' ),
-				'type' => \Elementor\Controls_Manager::HEADING
-			]
-		);
-
-        // divider bg color
-		$this->add_control(
-			'divider_bg_color',
-			[
-				'label' => esc_html__( 'Color', 'verifi3d-elementor' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#e16627',
-				'selectors' => [
-					'.section-heading h1::after' => 'background-color: {{VALUE}};',
-				],
+				'selector' => '{{WRAPPER}} .info p',
 			]
 		);
 
@@ -189,22 +201,35 @@ class Section_Heading_Widget extends \Elementor\Widget_Base {
     // HTML content render from here
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$heading = $settings['heading'];
+		$title = $settings['title'];
 		$description = $settings['description'];
+		$video_link = $settings['video_link']['url'];
+		$btn_text = $settings['btn_text'];
+		$btn_url = $settings['btn_url']['url'];
 
 		?>
-            <div class="container">
-                <div class="section-heading pt-lg-2 pt-md-0">
-                    <h1 data-animation="fadeInLeft"><?= $heading ?></h1>
-                    <?php
-                    if ($description) {
-                        ?>
-                        <p><?= $description ?></p>
-                        <?php
-                    }
-                    ?>
+        <section class="info overflow-hidden mt-4">
+            <div class="info-main mt-lg-3">
+                <div class="container">
+                    <div class="row align-items-center info-row py-4">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="left-info">
+                                <h5><?= $title ?></h5>
+                                <p><?= $description ?></p>
+                                <a href="<?= $btn_url ?>"><button class="common-btn"><?= $btn_text ?><span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></button></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+
+                            <div class="info-video-area">
+                                <iframe src="<?= $video_link ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 		<?php
 
 	}
