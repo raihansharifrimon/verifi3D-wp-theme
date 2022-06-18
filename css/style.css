@@ -1,0 +1,37 @@
+/* section heading */
+.section-heading {
+  padding: 20px 0px;
+}
+
+.section-heading h1::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #e16627;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.section-heading h1 {
+  font-size: 36px;
+  font-weight: 600;
+  margin: auto;
+  padding: 20px 0px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.section-heading p {
+  color: #e16627;
+  font-size: 20px;
+  line-height: 2;
+  text-align: center;
+  margin: 5px auto;
+  font-weight: 500;
+}
+
+
