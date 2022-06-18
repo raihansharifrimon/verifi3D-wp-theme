@@ -148,18 +148,20 @@ define("DIR_BSS_JS", DIR_BSS_STYLE . "/assets/js/");
  */
  
 function bss_verifi3d_scripts() {
-	wp_enqueue_style( 'font-titillium-web', 'https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap' );
+	wp_enqueue_style( 'font-titillium-web', 'https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap' );	
 	wp_enqueue_style( 'bootstrap', DIR_BSS_CSS . 'bootstrap.min.css', array(), '5.0.2' );
 	wp_enqueue_style( 'bss-style', DIR_BSS_CSS . 'style.css', array(), '1.0.0' );
 	wp_enqueue_style('bss-fontawesome', DIR_BSS_CSS . 'fontawesome-all.min.css');
+	wp_enqueue_style('bss-header', DIR_BSS_CSS . 'header.css');
+	wp_enqueue_style('bss-header', DIR_BSS_CSS . 'common.css');
 
 	wp_enqueue_style( 'bss_verifi3d-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'bss_verifi3d-style', 'rtl', 'replace' );
 
 	// js
 	wp_enqueue_script('jquery');
-	wp_enqueue_script('bss-fontawesome', DIR_BSS_JS . 'fontawesome-all.min.js', array('jquery'), '3.3.2', true);
 	wp_enqueue_script( 'bootstrap', DIR_BSS_JS . 'bootstrap.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script('bss-fontawesome', 'https://kit.fontawesome.com/affbab298a.js', array('jquery'), '3.3.2', TRUE);
 	wp_enqueue_script( 'bss-main', DIR_BSS_JS . 'main.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'bss_verifi3d-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );

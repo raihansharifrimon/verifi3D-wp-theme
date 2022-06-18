@@ -1,0 +1,159 @@
+:root {
+  --XinapsOrange: rgb(225, 102, 39);
+  --XinapsBlue: rgb(41, 169, 225);
+  --XinapsGrey: rgb(84, 89, 95);
+}
+
+.sticky {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  padding: 15px 0px;
+  background: var(--XinapsGrey);
+  z-index: 2147483647;
+  box-shadow: rgb(47, 47, 47) 0px 0px 4px 2px;
+}
+
+nav.navbar {
+  background-color: var(--XinapsGrey);
+  font-family: "Titillium Web", sans-serif;
+  color: #fff !important;
+}
+
+.navbar-toggler {
+  color: white !important;
+  border: 1px solid #fff !important;
+  border-radius: 2px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+#stickyLogo {
+  display: none;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
+
+.nav-inner li a {
+  text-decoration: none;
+  color: #fff !important;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-inner li a:hover {
+    color: var(--XinapsOrange);
+}
+
+.nav-inner .sub-menu {
+  position: absolute;
+  background: var(--XinapsGrey);
+  top: 50px;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+  width: 220px;
+  transition: all 0.6s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999999;
+}
+
+.nav-inner li:hover > .sub-menu {
+  top: 75px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav-inner .sub-menu li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.nav-inner .sub-menu li a {
+  padding: 4px 10px;
+  display: block;
+  border-radius: 5px;
+}
+
+.nav-inner .sub-menu li a:hover {
+  background-color: var(--XinapsOrange);
+  color: #fff;
+}
+
+.nav-inner .nav-btn a {
+  padding: 8px 20px !important;
+  border: 2px solid transparent;
+  border-radius: 40px;
+  margin-right: 10px;
+  background-color: var(--XinapsOrange);
+  white-space: no-wrap;
+}
+
+.nav-inner .nav-btn.nav-btn-outline a {
+  border-color: var(--XinapsOrange);
+  background-color: transparent;
+  color: var(--XinapsOrange);
+}
+
+.nav-inner .nav-btn a:hover {
+  background-color: transparent !important;
+  color: var(--XinapsOrange);
+  border-color: var(--XinapsOrange);
+}
+
+.nav-inner .nav-btn.nav-btn-outline a:hover {
+  background-color: var(--XinapsOrange) !important;
+  border-color: var(--XinapsOrange) !important;
+  color: #fff !important;
+}
+
+@media (max-width: 992px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+
+  .nav-inner li {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-inner li a {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-inner .sub-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+  }
+
+  .nav-inner li:hover > .sub-menu {
+    display: block;
+  }
+
+  .nav-inner .sub-menu li {
+    width: 100%;
+  }
+
+  .nav-inner .nav-btn a {
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+
+  .nav-inner .nav-btn {
+    width: auto;
+  }
+}

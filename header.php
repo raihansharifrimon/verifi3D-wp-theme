@@ -25,30 +25,45 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'bss_verifi3d' ); ?></a>
 
-	<header id="masthead" class="bss-header">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xl-3 col-sm-6">
-					<div class="bss-header__logo">
-						<?php
-							the_custom_logo();								
-						?>
+	<header>
+        <nav class="navbar navbar-expand-lg navbar-dark py-3" id="logoSwitcher">
+            <div class="w-100 px-4">
+				<div class="row">
+					<div class="col-lg-2">
+						<div class="d-flex justify-content-between align-item-center">
+							<?php
+								$custom_logo_id = get_theme_mod( 'custom_logo' );
+								$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+							?>
+						<a class="navbar-brand" href="index.html">
+							<img width="100px" id="logo" height="35px" src="<?= $logo[0] ?>"
+								alt="logo">
+							<img width="100px" id="stickyLogo" height="35px" src="<?= $logo[0] ?>" alt="logo">
+						</a>
+
+						<button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
+							data-bs-target="#navbarSupportedContent">
+							<i class="fa fa-bars"></i>
+						</button>
+						</div>
+					</div>
+					<div class="col-lg-10">						
+						<div class="collapse navbar-collapse h-100 justify-content-end" id="navbarSupportedContent">
+							<?php 
+								wp_nav_menu(
+									array(
+										'theme_location' => 'menu-1',
+										'menu_id'        => 'primary-menu',
+										'menu_class'	 => 'nav-inner',
+
+									)
+								);
+								
+							?>
+						</div>
 					</div>
 				</div>
-				<div class="col-xl-9 col-sm-6">
-					<button class="btn btn-outline-white mobile-menu__btn" id="mobileMenutoggler">
-						<span><i class="fa fa-bars"></i></span>
-					</button>
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-1',
-								'menu_id'        => 'primary-menu',
-								'menu_class'	 => 'bss-header__nav-inner'
-							)
-						);
-						?>
-				</div>
-			</div>
-		</div>
-	</header>
+            </div>
+        </nav>
+    </header>
+
