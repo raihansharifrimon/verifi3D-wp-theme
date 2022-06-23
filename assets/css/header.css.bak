@@ -112,9 +112,9 @@ nav.navbar {
 }
 
 .nav-inner .nav-btn.nav-btn-outline a:hover {
-  background-color: transparent !important;
+  background-color: var(--XinapsOrange) !important;
   border-color: var(--XinapsOrange) !important;
-  color: var(--XinapsOrange) !important;
+  color: #fff !important;
 }
 
 @media (max-width: 992px) {

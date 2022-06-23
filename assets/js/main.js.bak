@@ -1,0 +1,19 @@
+let logo = document.getElementById('logo');
+let stickyLogo = document.getElementById('stickyLogo');
+let navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    let top =  window.pageYOffset || document.documentElement.scrollTop;
+    if (top > 5) {
+		navbar.classList.add('sticky');
+        stickyLogo.style.display = "none";
+        logo.style.display = "block";
+        console.log("default");
+    }
+    else {		
+		navbar.classList.remove('sticky');
+        stickyLogo.style.display = "block";
+        logo.style.display = "none";
+        console.log("sticky");
+    }
+})

@@ -31,6 +31,14 @@ function bss_verifi3d_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+	$wp_customize->add_setting('sticky_header_logo');
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'sticky_header_logo', array(
+        'label' => 'Sticky Header Logo',
+        'section' => 'title_tagline', 
+        'settings' => 'sticky_header_logo',
+        'priority' => 8 
+    )));
 }
 add_action( 'customize_register', 'bss_verifi3d_customize_register' );
 
