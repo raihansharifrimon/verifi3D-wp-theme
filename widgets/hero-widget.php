@@ -290,11 +290,9 @@ class Banner_Widget extends \Elementor\Widget_Base {
                             <a class="popup-video" href="<?= $btn_2_url ?>">
 								<button class="common-btn">
 								<?= $btn_2_title ?>
-									<span><i class="fa fa-search" aria-hidden="true"></i></span>
+									<span><i class="fa fa-play" aria-hidden="true"></i></span>
                                 </button>
 							</a>
-
-
                         </div>
                     </div>
                 </div>
@@ -302,46 +300,6 @@ class Banner_Widget extends \Elementor\Widget_Base {
         </section>
 		<?php
 
-	}
-
-	/**
-	 * Render list widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 */
-	protected function content_template() {
-		?>
-		<#
-		html_tag = {
-			'ordered': 'ol',
-			'unordered': 'ul',
-			'other': 'ul',
-		};
-		view.addRenderAttribute( 'list', 'class', 'verifi3d-elementor' );
-		#>
-		<{{{ html_tag[ settings.marker_type ] }}} {{{ view.getRenderAttributeString( 'list' ) }}}>
-			<# _.each( settings.list_items, function( item, index ) {
-				var repeater_setting_key = view.getRepeaterSettingKey( 'text', 'list_items', index );
-				view.addRenderAttribute( repeater_setting_key, 'class', 'verifi3d-elementor-text' );
-				view.addInlineEditingAttributes( repeater_setting_key );
-				#>
-				<li {{{ view.getRenderAttributeString( repeater_setting_key ) }}}>
-					<# var title = item.text; #>
-					<# if ( item.link ) { #>
-						<# view.addRenderAttribute( `link_${index}`, item.link ); #>
-						<a href="{{ item.link.url }}" {{{ view.getRenderAttributeString( `link_${index}` ) }}}>
-							{{{title}}}
-						</a>
-					<# } else { #>
-						{{{title}}}
-					<# } #>
-				</li>
-			<# } ); #>
-		</{{{ html_tag[ settings.marker_type ] }}}>
-		<?php
 	}
 
 }
