@@ -290,7 +290,7 @@ class Roi_Calculator extends \Elementor\Widget_Base {
                     </div>
 
                     <div class="col-lg-4 col-md-8 col-sm-12 d-flex justify-content-end">
-                        <img width="66%" src="./img/Xinaps_ROI_Calculator-removebg-preview.png" alt="">
+                        <img width="66%" src="<?= $settings['image']['url'] ?>" alt="">
                     </div>
 
                 </div>
@@ -336,7 +336,7 @@ class Roi_Calculator extends \Elementor\Widget_Base {
             let TimeSaved = TimeSavedLicense + TimeSavedFilterSets + TimeSavedClashing + TimeSavedBim360;
             let CostSaved = TimeSaved * 75 * 8;
 
-            console.log("Type : ", type);
+            // console.log("Type : ", type);
             total_amount_saved.innerText = CostSaved;
             document.getElementById("total_days_saved").innerText = TimeSaved;
             document.getElementById("filter_set_value").innerText = TimeSavedFilterSets + " days";
@@ -345,13 +345,13 @@ class Roi_Calculator extends \Elementor\Widget_Base {
 
 
 
-            console.log('LicenseSavingsPerYear : ', LicenseSavingsPerYear);
-            console.log('TimeSavedLicense : ', TimeSavedLicense);
-            console.log('TimeSavedFilterSets : ', TimeSavedFilterSets);
-            console.log('TimeSavedClashing : ', TimeSavedClashing);
-            console.log('TimeSavedBim360 : ', TimeSavedBim360);
-            console.log('TimeSaved : ', TimeSaved);
-            console.log('CostSaved : ', CostSaved);
+            // console.log('LicenseSavingsPerYear : ', LicenseSavingsPerYear);
+            // console.log('TimeSavedLicense : ', TimeSavedLicense);
+            // console.log('TimeSavedFilterSets : ', TimeSavedFilterSets);
+            // console.log('TimeSavedClashing : ', TimeSavedClashing);
+            // console.log('TimeSavedBim360 : ', TimeSavedBim360);
+            // console.log('TimeSaved : ', TimeSaved);
+            // console.log('CostSaved : ', CostSaved);
 
 
             let loadingOneMaxRotate = (360 / 100) * TimeSavedFilterSets;
@@ -359,17 +359,17 @@ class Roi_Calculator extends \Elementor\Widget_Base {
             let loadingTwoMaxRotate = (loadingOneMaxRotate >= 180) ? (loadingOneMaxRotate - 180) : 0;
             loadingOneMaxRotate = (loadingOneMaxRotate > 180) ? 180 : loadingOneMaxRotate;
 
-            $.keyframe.define([{
-                name: 'loading-1',
-                '0%': { 'transform': `rotate(0deg)` },
-                '100%': { 'transform': `rotate(${loadingOneMaxRotate}deg)` }
-            }]);
+            // $.keyframe.define([{
+            //     name: 'loading-1',
+            //     '0%': { 'transform': `rotate(0deg)` },
+            //     '100%': { 'transform': `rotate(${loadingOneMaxRotate}deg)` }
+            // }]);
 
-            $.keyframe.define([{
-                name: 'loading-2',
-                '0%': { 'transform': `rotate(0deg)` },
-                '100%': { 'transform': `rotate(${loadingTwoMaxRotate}deg)` }
-            }]);
+            // $.keyframe.define([{
+            //     name: 'loading-2',
+            //     '0%': { 'transform': `rotate(0deg)` },
+            //     '100%': { 'transform': `rotate(${loadingTwoMaxRotate}deg)` }
+            // }]);
 
 
             let loadingThreeMaxRotate = (360 / 100) * TimeSavedClashing;
@@ -377,17 +377,17 @@ class Roi_Calculator extends \Elementor\Widget_Base {
             let loadingFourMaxRotate = (loadingThreeMaxRotate >= 180) ? (loadingThreeMaxRotate - 180) : 0;
             loadingThreeMaxRotate = (loadingThreeMaxRotate > 180) ? 180 : loadingThreeMaxRotate;
 
-            $.keyframe.define([{
-                name: 'loading-3',
-                '0%': { 'transform': `rotate(0deg)` },
-                '100%': { 'transform': `rotate(${loadingThreeMaxRotate}deg)` }
-            }]);
+            // $.keyframe.define([{
+            //     name: 'loading-3',
+            //     '0%': { 'transform': `rotate(0deg)` },
+            //     '100%': { 'transform': `rotate(${loadingThreeMaxRotate}deg)` }
+            // }]);
 
-            $.keyframe.define([{
-                name: 'loading-4',
-                '0%': { 'transform': `rotate(0deg)` },
-                '100%': { 'transform': `rotate(${loadingFourMaxRotate}deg)` }
-            }]);
+            // $.keyframe.define([{
+            //     name: 'loading-4',
+            //     '0%': { 'transform': `rotate(0deg)` },
+            //     '100%': { 'transform': `rotate(${loadingFourMaxRotate}deg)` }
+            // }]);
 
 
             let loadingFiveMaxRotate = (360 / 100) * TimeSavedBim360;
@@ -395,17 +395,17 @@ class Roi_Calculator extends \Elementor\Widget_Base {
             let loadingSixMaxRotate = (loadingFiveMaxRotate >= 180) ? (loadingFiveMaxRotate - 180) : 0;
             loadingFiveMaxRotate = (loadingFiveMaxRotate > 180) ? 180 : loadingFiveMaxRotate;
 
-            $.keyframe.define([{
-                name: 'loading-5',
-                '0%': { 'transform': `rotate(0deg)` },
-                '100%': { 'transform': `rotate(${loadingFiveMaxRotate}deg)` }
-            }]);
+            // $.keyframe.define([{
+            //     name: 'loading-5',
+            //     '0%': { 'transform': `rotate(0deg)` },
+            //     '100%': { 'transform': `rotate(${loadingFiveMaxRotate}deg)` }
+            // }]);
 
-            $.keyframe.define([{
-                name: 'loading-6',
-                '0%': { 'transform': `rotate(0deg)` },
-                '100%': { 'transform': `rotate(${loadingSixMaxRotate}deg)` }
-            }]);
+            // $.keyframe.define([{
+            //     name: 'loading-6',
+            //     '0%': { 'transform': `rotate(0deg)` },
+            //     '100%': { 'transform': `rotate(${loadingSixMaxRotate}deg)` }
+            // }]);
 
 
 

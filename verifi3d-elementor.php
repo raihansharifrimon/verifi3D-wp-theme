@@ -37,6 +37,9 @@ function register_vefifi3d_elementor_widget( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/circle-step.php' );
 	require_once( __DIR__ . '/widgets/tabs.php' );
 	require_once( __DIR__ . '/widgets/roi-calculator.php' );
+	require_once( __DIR__ . '/widgets/overlay-image.php' );
+	require_once( __DIR__ . '/widgets/double-tabs.php' );
+	require_once( __DIR__ . '/widgets/calendar.php' );
 
 	$widgets_manager->register( new \Banner_Widget() );
 	$widgets_manager->register( new \Section_Heading_Widget() );
@@ -49,6 +52,9 @@ function register_vefifi3d_elementor_widget( $widgets_manager ) {
 	$widgets_manager->register( new \Circle_Step() );
 	$widgets_manager->register( new \Tabs() );
 	$widgets_manager->register( new \Roi_Calculator() );
+	$widgets_manager->register( new \Overlay_Image() );
+	$widgets_manager->register( new \Double_Tabs() );
+	$widgets_manager->register( new \Calendar() );
 
 }
 
